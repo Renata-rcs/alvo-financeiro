@@ -31,18 +31,11 @@ export default function SaudeForm({ navigation, route }) {
       gasto.id = gastoAntigo.id
       await SaudeService.atualizar(gasto)
       alert("Gasto alterado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'SaudeLista' }]
-      })
     } else {
       await SaudeService.salvar(gasto)
       alert("Gasto cadastrado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'SaudeLista' }]
-      })
     }
+    navigation.goBack();
   }
 
   return (

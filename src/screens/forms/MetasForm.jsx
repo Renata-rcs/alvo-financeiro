@@ -65,18 +65,11 @@ export default function MetasForm({ navigation, route }) {
       meta.id = metaAntiga.id
       await MetasService.atualizar(meta)
       alert("Meta alterada com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'MetasLista' }]
-      })
     } else {
       await MetasService.salvar(meta)
       alert("Meta cadastrada com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'MetasLista' }]
-      })
     }
+    navigation.goBack();
   }
 
   return (

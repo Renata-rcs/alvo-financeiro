@@ -29,18 +29,11 @@ export default function SaldoForm({ navigation, route }) {
       gasto.id = gastoAntigo.id
       await SaldoService.atualizar(gasto)
       alert("Gasto alterado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'SaldoLista' }]
-      })
     } else {
       await SaldoService.salvar(gasto)
       alert("Gasto cadastrado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'SaldoLista' }]
-      })
     }
+    navigation.goBack();
   }
 
   return (

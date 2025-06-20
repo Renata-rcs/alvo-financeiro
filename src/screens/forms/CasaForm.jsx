@@ -31,18 +31,11 @@ export default function CasaForm({ navigation, route }) {
       gasto.id = gastoAntigo.id
       await CasaService.atualizar(gasto)
       alert("Gasto alterado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'CasaLista' }]
-      })
     } else {
       await CasaService.salvar(gasto)
       alert("Gasto cadastrado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'CasaLista' }]
-      })
     }
+    navigation.goBack();
   }
 
   return (

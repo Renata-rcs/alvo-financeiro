@@ -29,18 +29,11 @@ export default function LazerForm({ navigation, route }) {
       gasto.id = gastoAntigo.id
       await LazerService.atualizar(gasto)
       alert("Gasto alterado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'LazerLista' }]
-      })
     } else {
       await LazerService.salvar(gasto)
       alert("Gasto cadastrado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'LazerLista' }]
-      })
     }
+    navigation.goBack();
   }
 
   return (

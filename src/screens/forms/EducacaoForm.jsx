@@ -32,18 +32,11 @@ export default function EduacacaoForm({ navigation, route }) {
       gasto.id = gastoAntigo.id
       await EducacaoService.atualizar(gasto)
       alert("Gasto alterado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'EducacaoLista' }]
-      })
     } else {
       await EducacaoService.salvar(gasto)
       alert("Gasto cadastrado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'EducacaoLista' }]
-      })
     }
+    navigation.goBack();
   }
 
   return (

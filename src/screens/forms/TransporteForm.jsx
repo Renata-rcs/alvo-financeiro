@@ -29,18 +29,11 @@ export default function TransporteForm({ navigation, route }) {
       gasto.id = gastoAntigo.id
       await TransporteService.atualizar(gasto)
       alert("Gasto alterado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'TransporteLista' }]
-      })
     } else {
       await TransporteService.salvar(gasto)
       alert("Gasto cadastrado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'TransporteLista' }]
-      })
     }
+    navigation.goBack();
   }
 
   return (

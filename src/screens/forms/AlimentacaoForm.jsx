@@ -31,19 +31,13 @@ export default function AlimentacaoForm({ navigation, route }) {
     if (gastoAntigo.id) {
       gasto.id = gastoAntigo.id
       await AlimentacaoService.atualizar(gasto)
-      alert("Gasto alterado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'AlimentacaoLista' }]
-      })
+      
     } else {
       await AlimentacaoService.salvar(gasto)
       alert("Gasto cadastrado com sucesso!")
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'AlimentacaoLista' }]
-      })
+      
     }
+    navigation.goBack();
   }
 
   return (
