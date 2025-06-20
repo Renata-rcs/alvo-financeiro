@@ -20,8 +20,6 @@ import SaudeForm from "../screens/forms/SaudeForm";
 import TransporteForm from "../screens/forms/TransporteForm";
 import SaldoForm from "../screens/forms/SaldoForm";
 
-// importe outras listas conforme necessário
-
 const Stack = createStackNavigator();
 
 export default function CategoriaStackRoutes() {

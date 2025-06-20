@@ -2,14 +2,19 @@ import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import { Button, Card, Text } from "react-native-paper";
 import AlimentacaoService from "../../services/AlimentacaoService";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 
-export default function AlimentacaoLista({ navigation }) {
+
+export default function AlimentacaoLista({ navigation, route }) {
   const [gastos, setGastos] = useState([]);
   
-  useEffect(() => {
-    buscarGastos();
-
-  }, []);
+  // Carrega as metas toda vez que a tela for exibida
+  useFocusEffect(
+    useCallback(() => {
+      buscarGastos();
+    }, [])
+  );
 
   async function buscarGastos() {
     const listaGastos = await AlimentacaoService.listar();

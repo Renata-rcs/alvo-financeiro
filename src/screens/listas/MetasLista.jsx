@@ -2,13 +2,18 @@ import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import { Button, Card, Text, ProgressBar } from "react-native-paper";
 import MetasService from "../../services/MetasService";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 
-export default function MetasLista({ navigation }) {
+
+export default function MetasLista({ navigation, route }) {
   const [metas, setMetas] = useState([]);
 
-  useEffect(() => {
-    buscarMetas();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      buscarMetas();
+    }, [])
+  );
 
   async function buscarMetas() {
     const listaMetas = await MetasService.listar();

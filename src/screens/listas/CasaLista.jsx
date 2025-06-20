@@ -2,13 +2,18 @@ import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import { Button, Card, Text } from "react-native-paper";
 import CasaService from "../../services/CasaService";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 
-export default function CasaLista({ navigation }) {
+
+export default function CasaLista({ navigation, route }) {
   const [gastos, setGastos] = useState([]);
 
-  useEffect(() => {
-    buscarGastos();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      buscarGastos();
+    }, [])
+  );
 
   async function buscarGastos() {
     const listaGastos = await CasaService.listar();

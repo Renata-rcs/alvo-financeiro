@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, View, TouchableOpacity, Modal, FlatList, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Modal,
+  FlatList,
+  ScrollView,
+} from "react-native";
 import { Text, Card } from "react-native-paper";
 
 // Import dos serviços
@@ -223,7 +230,6 @@ export default function TransacoesScreen() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     padding: 20,
@@ -244,7 +250,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
-    textAlign: 'center'
+    textAlign: "center",
   },
 
   cardTitulo: {
@@ -410,6 +416,3 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-
-
-

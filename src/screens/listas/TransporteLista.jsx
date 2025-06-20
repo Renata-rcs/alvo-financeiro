@@ -2,13 +2,19 @@ import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import { Button, Card, Text } from "react-native-paper";
 import TransporteService from "../../services/TransporteService";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 
-export default function TransporteLista({ navigation }) {
+
+export default function TransporteLista({ navigation, route }) {
   const [gastos, setGastos] = useState([]);
 
-  useEffect(() => {
+  useFocusEffect(
+  useCallback(() => {
     buscarGastos();
-  }, []);
+  }, [])
+);
+
 
   async function buscarGastos() {
     const listaGastos = await TransporteService.listar();

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Image, FlatList } from "react-native";
 import { Text, Button, Card, ProgressBar, Avatar, ActivityIndicator } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
+
 
 const CHAVE_USUARIO = "@perfil";
 const CHAVE_METAS = "@metas";
@@ -10,31 +13,23 @@ export default function PerfilScreen({ navigation }) {
   const [perfil, setPerfil] = useState(null);
   const [metas, setMetas] = useState([]);
 
-  useEffect(() => {
+  useFocusEffect(
+  useCallback(() => {
     const carregarDados = async () => {
       const usuarioArmazenado = await AsyncStorage.getItem(CHAVE_USUARIO);
       if (usuarioArmazenado) {
         setPerfil(JSON.parse(usuarioArmazenado));
-      } else {
-        const perfilInicial = {
-          nome: "Nome do Usuário",
-          email: "usuario@email.com",
-          senha: "senha123",
-          imagemPerfil: null,
-          idade: "",
-          ocupacao: "",
-          localizacao: "",
-        };
-        await AsyncStorage.setItem(CHAVE_USUARIO, JSON.stringify(perfilInicial));
-        setPerfil(perfilInicial);
       }
+
       const metasArmazenadas = await AsyncStorage.getItem(CHAVE_METAS);
       if (metasArmazenadas) {
         setMetas(JSON.parse(metasArmazenadas));
       }
     };
+
     carregarDados();
-  }, []);
+  }, [])
+);
 
   if (!perfil) {
     return (
