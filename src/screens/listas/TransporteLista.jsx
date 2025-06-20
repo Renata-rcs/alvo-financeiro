@@ -6,7 +6,8 @@ import { useFocusEffect } from "@react-navigation/native";
 import { useCallback } from "react";
 
 
-export default function TransporteLista({ navigation, route }) {
+export default function TransporteLista({ navigation }) {
+  
   const [gastos, setGastos] = useState([]);
 
   useFocusEffect(

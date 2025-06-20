@@ -9,7 +9,7 @@ import {
   FlatList,
   Dimensions,
 } from "react-native";
-import { Card, ProgressBar } from "react-native-paper";
+import { Card } from "react-native-paper";
 import { useFocusEffect } from "@react-navigation/native";
 import { PieChart } from "react-native-chart-kit";
 
@@ -24,7 +24,8 @@ import LazerService from "../../services/LazerService";
 import SaudeService from "../../services/SaudeService";
 import SaldoService from "../../services/SaldoService";
 
-const anos = Array.from({ length: 2030 - 2020 + 1 }, (_, i) => 2020 + i);
+// Anos para seleção (2020 a 2030)
+const anos = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030];
 
 const meses = [
   { id: 1, nome: "Janeiro" },

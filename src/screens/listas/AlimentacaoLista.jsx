@@ -6,7 +6,8 @@ import { useFocusEffect } from "@react-navigation/native";
 import { useCallback } from "react";
 
 
-export default function AlimentacaoLista({ navigation, route }) {
+export default function AlimentacaoLista({ navigation }) {
+
   const [gastos, setGastos] = useState([]);
   
   // Carrega as metas toda vez que a tela for exibida

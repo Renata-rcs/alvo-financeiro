@@ -19,7 +19,7 @@ import SaudeService from "../../services/SaudeService";
 import SaldoService from "../../services/SaldoService";
 
 // Anos para seleção (2020 a 2030)
-const anos = Array.from({ length: 2030 - 2020 + 1 }, (_, i) => 2020 + i);
+const anos = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030];
 
 // Meses para seleção
 const meses = [

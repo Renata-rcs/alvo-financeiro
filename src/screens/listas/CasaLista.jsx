@@ -6,7 +6,8 @@ import { useFocusEffect } from "@react-navigation/native";
 import { useCallback } from "react";
 
 
-export default function CasaLista({ navigation, route }) {
+export default function CasaLista({ navigation }) {
+  
   const [gastos, setGastos] = useState([]);
 
   useFocusEffect(

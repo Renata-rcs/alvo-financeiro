@@ -2,14 +2,6 @@ import React from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import AlimentacaoLista from '../listas/AlimentacaoLista'
-import EducacaoLista from '../listas/EducacaoLista'
-import LazerLista from '../listas/LazerLista'
-import MetasLista from '../listas/MetasLista'
-import SaldoLista from '../listas/SaldoLista'
-import SaudeLista from '../listas/SaudeLista'
-import TransporteLista from '../listas/TransporteLista'
-import CasaLista from '../listas/CasaLista'
 
 const categoriasFixas = [
   { id: '9', nome: 'Saldo', cor: '#708090', icone: 'wallet', tela: 'SaldoLista' },          // cinza azulado
